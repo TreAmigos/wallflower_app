@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<!-- Select Group Dropdown Button -->
+			<ul class="nav navbar-nav navbar-left">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default navbar-btn"><%= current_group %></button>
+					<button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Group Name 2</a></li>
+						<li><a href="#">Group Name 3</a></li>
+					</ul>
+				</div>
+			</ul>
+	
+			<!-- User Dropdown Button -->
+			<ul class="nav navbar-nav navbar-right">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default navbar-btn"><%= current_name %></button>
+					<button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">My Profile</a></li>
+						<li><a href="#">Settings</a></li>
+						<li role="separator" class="divider"></li>
+						<li><%= link_to 'Sign Out', destroy_user_session_url, :method => :delete%></li>
+					</ul>
+				</div>
+			</ul>
+		</div>
+	</nav>
+<% end %>
