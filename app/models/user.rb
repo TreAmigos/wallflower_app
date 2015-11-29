@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :group_memberships
   has_one :current_group
 
-  DEFAULT_NO_GROUP_MESSAGE = "Join a group!"
+  DEFAULT_NO_GROUP_MESSAGE = "Join or create a group!"
 
   def my_group
   	# My group first looks at current_group, which shows last group user selected
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   	# then just chooses the first group this user belongs to
   	# and if all those fail defaults to "Join a group!"
   	if current_group
-  		Group.find(current_group.id).name
+  		Group.find(current_group.group_id).name
   	elsif preferred_group_id
   		Group.find(preferred_group_id).name
   	elsif groups.first
