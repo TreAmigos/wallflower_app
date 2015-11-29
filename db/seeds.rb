@@ -25,7 +25,7 @@ else
 		password: DEFAULT_PASSWORD, 
 		confirmed_at: Time.now, 
 		confirmation_sent_at: Time.now
-	)
+		)
 	puts "\t\tDefault user created: #{user.attributes}"
 end
 
